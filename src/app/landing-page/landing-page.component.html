@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div style="margin-top: 100px">
+    <div style="margin-left: 30%; margin-right: 30%">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let data of listArtPieces; let i = index" [ngClass]="i === 0 ? 'active' : ''" class="carousel-item">
+            <img [src]="data.imgURL" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>{{data.title}}</h4>
+              <p>{{data.artist_title}}</p>
+            </div>
+          </div>
+        </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+    </div>
+
+  <div style="margin: 15px" class="d-grid gap-2 col-3 mx-auto">
+    <button class="btn btn-outline-secondary" style="background-color: #28424f; color: white" type="button" (click)="redirectTo()">Explore</button>
+  </div>
+</div>
