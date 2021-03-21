@@ -22,6 +22,7 @@ import {FormsModule} from "@angular/forms";
 import {StoreModule} from "@ngrx/store";
 import {counterReducer} from "./store/reducer";
 import { FavouriteComponent } from './favourite/favourite.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { FavouriteComponent } from './favourite/favourite.component';
     NavbarComponent,
     FooterComponent,
     CartComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    LoginComponent
 
   ],
   imports: [

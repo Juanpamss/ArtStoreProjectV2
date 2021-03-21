@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SearchResultsModel } from '../models/SearchResults.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,13 +19,16 @@ export class NavbarComponent implements OnInit {
   constructor(
     private _artapiService: artapiService,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private loginService: LoginService
   ) {}
 
   closeResult: string;
   title = '';
-
-  ngOnInit(): void {}
+  userName = 'Login'
+  ngOnInit(): void {
+    this.userName = this.loginService.getUsername();
+  }
 
   getFormData(formData) {
     let userInput = formData.value.searchInput;
