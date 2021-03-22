@@ -23,6 +23,7 @@ import {StoreModule} from "@ngrx/store";
 import {counterReducer} from "./store/reducer";
 import { FavouriteComponent } from './favourite/favourite.component';
 import { LoginComponent } from './login/login.component';
+import { AddedToCartModalComponent } from './added-to-cart-modal/added-to-cart-modal.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     CartComponent,
     FavouriteComponent,
-    LoginComponent
+    LoginComponent,
+    AddedToCartModalComponent
 
   ],
   imports: [

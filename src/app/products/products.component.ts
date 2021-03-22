@@ -21,7 +21,8 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
-
+  loading = false;
+  cartCount = 0;
 
   artPiecesToDisplay: ArtPiece[] = [];
 
@@ -41,7 +42,7 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    this.loading = true;
     this.param1 = this.route.snapshot.queryParamMap.get('userInput')
 
     if (this.param1 === "" || this.param1 === null) {
@@ -61,6 +62,8 @@ export class ProductsComponent implements OnInit {
           )
 
           this._artapiService.listArtPieces = this.artPiecesToDisplay
+          setTimeout(() => {  this.loading = false; }, 1000);
+
         }
       )
     } else {
@@ -75,9 +78,9 @@ export class ProductsComponent implements OnInit {
               api_link: parseInfo.api_link
             })
           )
-
           this._artapiService.getSearchData(searchResults)
           this.artPiecesToDisplay = this._artapiService.listArtPieces
+          setTimeout(() => {  this.loading = false; }, 1000);
           //this.router.navigateByUrl('/products')
         }
       )
@@ -85,5 +88,9 @@ export class ProductsComponent implements OnInit {
     }
 
     this.categories = this.categoryService.getAll();
+ }
+
+ reloadItemCount(cartCount) {
+   this.cartCount = cartCount
  }
 }

@@ -22,4 +22,11 @@
     clear: both;
     float: none;
   }
+
+}
+#cart-count {
+  position: absolute;
+  color: blue;
+  left: 8px;
+  top: -15px;
 }
