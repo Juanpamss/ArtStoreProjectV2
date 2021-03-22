@@ -13,11 +13,11 @@
   .col-md-9:not(:first-child) {
     border-left: 1px solid lightgrey;
   }
-  .col-md-4:not(:last-child),
+  /*.col-md-4:not(:last-child),
   .col-md-6:not(:last-child) {
     border-right: 1px solid lightgrey;
     margin-right: -1px;
-  }
+  }*/
 }
 
 #overlay {

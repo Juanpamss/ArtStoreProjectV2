@@ -63,7 +63,7 @@ export class ProductsComponent implements OnInit {
 
         this._artapiService.getSearchData(false,searchResults)
         this.artPiecesToDisplay = this._artapiService.listArtPieces
-        setTimeout(() => {  this.loading = false; }, 1500);
+        setTimeout(() => {  this.loading = false; }, 2000);
         //this.router.navigateByUrl('/products')
       }
     )
