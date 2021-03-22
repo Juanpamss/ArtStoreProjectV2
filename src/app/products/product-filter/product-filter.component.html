@@ -1,10 +1,10 @@
 <div class="card" style="width: 18rem; margin-left: 40px">
   <div class="card-body">
     <h5 class="card-title">{{category.name}}</h5>
-    <div class="form-check">
+    <div id="{{category.name}}" class="form-check">
       <div *ngFor="let p of category.options; let i = index">
         <div *ngIf="category.options[i] != 0;">
-          <input #myption name="option-{{p}}" (change)="OnCheckboxSelect(category.name === 'Price' ? 'price-'+p : p, $event)" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <input id="{{p}}" #myption name="option-{{p}}" (change)="OnCheckboxSelect(category.name === 'Price' ? 'price-'+p : p, $event)" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
         </div>
         <div *ngIf="category.name === 'Price'; else elseBlock1">
           <div *ngIf="p != 0;">

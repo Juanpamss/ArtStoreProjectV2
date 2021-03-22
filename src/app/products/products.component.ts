@@ -10,12 +10,16 @@ import {ArtPiece} from "../models/artPiece.model";
 import {artapiService} from "../services/artapi.service";
 import {SearchResultsModel} from "../models/SearchResults.model";
 
+import * as data from './../../assets/category.json';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
+
+  categoryFilter: any = (data as any).default;
 
   categories = [];
 
@@ -43,50 +47,26 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.param1 = this.route.snapshot.queryParamMap.get('userInput')
+    this.param1 = this.route.snapshot.queryParamMap.get('userInput') !== null ? this.route.snapshot.queryParamMap.get('userInput') : ""
 
-    if (this.param1 === "" || this.param1 === null) {
-      this._artapiService.getEmergingArt().subscribe(
-        data => {
-          this.artPiecesToDisplay = data['data'].map(
-            parseInfo => ({
-              id: parseInfo.id,
-              title: parseInfo.title,
-              date_display: parseInfo.date_display,
-              artist_title: parseInfo.artist_title,
-              imgURL: parseInfo.image_id == null ? undefined : "https://www.artic.edu/iiif/2/" + parseInfo.image_id + "/full/843,/0/default.jpg",
-              price: parseFloat(parseInfo.main_reference_number),
-              style_title: parseInfo.style_title,
-              classification_title: parseInfo.classification_title
-            })
-          )
+    let searchResults : SearchResultsModel[]
 
-          this._artapiService.listArtPieces = this.artPiecesToDisplay
-          setTimeout(() => {  this.loading = false; }, 1000);
+    let subscriber = this._artapiService.getSearchResults(this.param1);
+    subscriber.subscribe(
+      data => {
+        searchResults = data['data'].map(
+          parseInfo => ({
+            api_link: parseInfo.api_link,
+            _score: parseInfo._score
+          })
+        )
 
-        }
-      )
-    } else {
-
-      let searchResults : SearchResultsModel[]
-
-      let subscriber = this._artapiService.getSearchResults(this.param1);
-      subscriber.subscribe(
-        data => {
-          searchResults = data['data'].map(
-            parseInfo => ({
-              api_link: parseInfo.api_link
-            })
-          )
-          this._artapiService.getSearchData(searchResults)
-          this.artPiecesToDisplay = this._artapiService.listArtPieces
-          setTimeout(() => {  this.loading = false; }, 1000);
-          //this.router.navigateByUrl('/products')
-        }
-      )
-      //this.artPiecesToDisplay = this._artapiService.listArtPieces
-    }
-
+        this._artapiService.getSearchData(false,searchResults)
+        this.artPiecesToDisplay = this._artapiService.listArtPieces
+        setTimeout(() => {  this.loading = false; }, 1500);
+        //this.router.navigateByUrl('/products')
+      }
+    )
     this.categories = this.categoryService.getAll();
  }
 

@@ -22,6 +22,7 @@ export class LandingPageComponent implements OnInit {
 
 
   ngOnInit(){
+
     this._artapiService.getEmergingArt().subscribe(
       data => {
         this.listArtPieces = data['data'].map(

@@ -1,11 +1,10 @@
 [
   {
     "name": "Classification",
-    "options": ["Oil on canvas", "Ink or chalk wash", "Pen and ink drawings", "Watercolor", "Etching" ,"Crossbow", "Design",
-      "Essentials","Sculpture", "Painting", "Textile", "Statuette", "Engraving", "Print", "Bowl", "Combination weapon", "Edged weapon-dagger"]
+    "options": ["Oil on canvas", "Oil on board", "Oil on panel", "Sculpture", "Painting", "Engraving", "Watercolor"]
   },
   {
     "name": "Price",
-    "options": ["15000","10000","5000","1000","0"]
+    "options": ["4000","3000","2000","1500","1000","500","0"]
   }
 ]
