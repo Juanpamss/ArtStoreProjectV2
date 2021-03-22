@@ -13,6 +13,7 @@ export class ProductCardComponent implements OnInit {
   @Input('ArtPiece') artPiece: ArtPiece;
   @Input('show-actions') showActions = true;
   toggle;
+  addOrRemove;
   constructor(
     private cartService: CartService,
     private favouriteService: FavouriteService
@@ -30,7 +31,11 @@ export class ProductCardComponent implements OnInit {
   }
 
   addToCart() {
-    this.cartService.addToCart(this.artPiece);
-    window.alert('Your product has been added to the cart!');
+    this.addOrRemove = !this.addOrRemove;
+    if (this.addOrRemove) {
+      this.cartService.addToCart(this.artPiece);
+    } else {
+      this.cartService.removeFromCart(this.artPiece);
+    }
   }
 }
