@@ -1,0 +1,29 @@
+<div>
+    <button style="margin: 10px; margin-right: 25px; margin-left: auto;" type="button" class="close" aria-label="Close" (click)="closeCart()">
+        <span aria-hidden="true">×</span>
+    </button>
+
+    <div class="cart_section">
+    <div class="cart_container">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-bottom: 20px;">
+            <a href="#">
+                <img
+                    src="assets/branding/logo.png"
+                    class="navbar-brand"
+                    style="margin: 5px; float: left"/>
+            </a>
+            <div style="text-align: center;">Added to your cart!</div>
+        </div>
+        <div class="cart_item_image">
+            <div *ngIf="lastItem.imgURL === undefined; else elseBlock">
+                <img src="assets/branding/default-img.png" alt="">
+            </div>
+            <ng-template #elseBlock>
+                <img [src]="lastItem.imgURL" alt="">
+            </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+

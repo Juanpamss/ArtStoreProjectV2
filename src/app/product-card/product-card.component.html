@@ -5,6 +5,10 @@
       <img class="card-img-top" src="assets/branding/default-img.png" />
     </div>
   </div>
+  <ng-template #addedToCartModal let-modal class="added-to-cart">
+    <app-added-to-cart-modal (buttonClicked)="closeAddedToCartModal($event)"></app-added-to-cart-modal>
+  </ng-template>
+
   <ng-template #elseBlock>
     <div class="container">
       <div class="bottom-right" style="background-color: #28424f; color: white; border-radius: 5px">&nbsp;{{artPiece.classification_title}}&nbsp;</div>
@@ -23,12 +27,17 @@
       style="text-decoration: none; margin-right: 10px; margin-left: 10px"
       [style.color]="toggle ? 'red' : 'grey'"
     ></a>
-    <a
-      (click)="addToCart()"
-      *ngIf="showActions"
+    <a *ngIf="!inCart && showActions"
+      (click)="addToCart(addedToCartModal)"
       class="btn btn-secondary"
       style="color: white; margin-right: 10px; margin-left: 10px"
       >{{addOrRemove? 'Remove From' : 'Add To'}} Cart</a
     >
+    <a *ngIf="inCart && showActions"
+    (click)="removeFromCart(addedToCartModal)"
+    class="btn btn-secondary"
+    style="color: black; margin-right: 10px; margin-left: 10px; background: lightgray; border-color: lightgray;"
+    >Remove from Cart</a
+  >
   </div>
 </div>
