@@ -42,6 +42,7 @@ export class ProductFilterComponent implements OnInit {
       }
     }
 
+    //If only the Category filters where selected
     if(this._product.selectedPrice.length === 0 && this._product.selectedClassification.length > 0){
       this._artPieceService.listArtPieces.forEach(data => {
         this._product.selectedClassification.forEach(busc => {
@@ -50,32 +51,41 @@ export class ProductFilterComponent implements OnInit {
           }
         })
       })
-    }else if(this._product.selectedPrice.length > 0 && this._product.selectedClassification.length === 0){
+    }
+    //If only the Price filters where selected
+    else if(this._product.selectedPrice.length > 0 && this._product.selectedClassification.length === 0){
       this._artPieceService.listArtPieces.forEach(data => {
         this._product.selectedPrice.forEach(busc => {
           let option = busc.option;
           var auxOption = option.replace("price-", "");
-          if(parseFloat(auxOption) === 1000){
+          if(parseFloat(auxOption) === 500){
             if(data.price >= 0 && data.price <= parseFloat(auxOption)){
               this.filteredArtPiecesList.push(data)
             }
-          }else if(parseFloat(auxOption) === 5000){
+          }else if(parseFloat(auxOption) === 1000){
+            if(data.price >= 500 && data.price <= parseFloat(auxOption)){
+              this.filteredArtPiecesList.push(data)
+            }
+          }else if(parseFloat(auxOption) === 1500){
             if(data.price >= 1000 && data.price <= parseFloat(auxOption)){
               this.filteredArtPiecesList.push(data)
             }
-          }else if(parseFloat(auxOption) === 10000){
-            if(data.price >= 5000 && data.price <= parseFloat(auxOption)){
+          }else if(parseFloat(auxOption) === 2000){
+            if(data.price >= 1500 && data.price <= parseFloat(auxOption)){
               this.filteredArtPiecesList.push(data)
             }
-          }else if(parseFloat(auxOption) === 15000){
-            if(data.price >= 10000 && data.price <= parseFloat(auxOption)){
+          }else if(parseFloat(auxOption) === 3000){
+            if(data.price >= 2000 && data.price <= parseFloat(auxOption)){
+              this.filteredArtPiecesList.push(data)
+            }
+          }else if(parseFloat(auxOption) === 4000){
+            if(data.price >= 3000 && data.price <= parseFloat(auxOption)){
               this.filteredArtPiecesList.push(data)
             }
           }
         })
       })
     }else{
-
       //Auxiliar list to filter art pieces by calssification and price
       let auxList = []
       this._artPieceService.listArtPieces.forEach(data => {
@@ -90,20 +100,28 @@ export class ProductFilterComponent implements OnInit {
         this._product.selectedPrice.forEach(busc => {
           let option = busc.option;
           var auxOption = option.replace("price-", "");
-          if(parseFloat(auxOption) === 1000){
+          if(parseFloat(auxOption) === 500){
             if(data.price >= 0 && data.price <= parseFloat(auxOption)){
               auxList.push(data)
             }
-          }else if(parseFloat(auxOption) === 5000){
+          }else if(parseFloat(auxOption) === 1000){
+            if(data.price >= 500 && data.price <= parseFloat(auxOption)){
+              auxList.push(data)
+            }
+          }else if(parseFloat(auxOption) === 1500){
             if(data.price >= 1000 && data.price <= parseFloat(auxOption)){
               auxList.push(data)
             }
-          }else if(parseFloat(auxOption) === 10000){
-            if(data.price >= 5000 && data.price <= parseFloat(auxOption)){
+          }else if(parseFloat(auxOption) === 2000){
+            if(data.price >= 1500 && data.price <= parseFloat(auxOption)){
               auxList.push(data)
             }
-          }else if(parseFloat(auxOption) === 15000){
-            if(data.price >= 10000 && data.price <= parseFloat(auxOption)){
+          }else if(parseFloat(auxOption) === 3000){
+            if(data.price >= 2000 && data.price <= parseFloat(auxOption)){
+              auxList.push(data)
+            }
+          }else if(parseFloat(auxOption) === 4000){
+            if(data.price >= 3000 && data.price <= parseFloat(auxOption)){
               auxList.push(data)
             }
           }

@@ -49,6 +49,7 @@ export class ProductsComponent implements OnInit {
     this.loading = true;
     this.param1 = this.route.snapshot.queryParamMap.get('userInput') !== null ? this.route.snapshot.queryParamMap.get('userInput') : ""
 
+    this.categories = this.categoryService.getAll();
     let searchResults : SearchResultsModel[]
 
     let subscriber = this._artapiService.getSearchResults(this.param1);
@@ -63,11 +64,14 @@ export class ProductsComponent implements OnInit {
 
         this._artapiService.getSearchData(false,searchResults)
         this.artPiecesToDisplay = this._artapiService.listArtPieces
-        setTimeout(() => {  this.loading = false; }, 2000);
+        setTimeout(() => {  this.loading = false; }, 3500);
         //this.router.navigateByUrl('/products')
+      },
+      complete => {
+      },
+      () => {
       }
     )
-    this.categories = this.categoryService.getAll();
  }
 
  reloadItemCount(cartCount) {
