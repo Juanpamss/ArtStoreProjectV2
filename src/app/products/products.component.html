@@ -17,7 +17,7 @@
           <h4 style="margin-left: 10px; font-weight: bold">Results</h4>
         </div>
         <ng-template #elseBlockResults>
-          <h4 style="margin-left: 10px; font-weight: bold">Results for: {{param1}}</h4>
+          <h4 style="margin-left: 10px; font-weight: bold">{{totalCount}} results for: {{param1}}</h4>
         </ng-template>
         <div *ngIf="artPiecesToDisplay.length === 0; else elseBlock">
           <div style="text-align: center; margin-top: 70px">

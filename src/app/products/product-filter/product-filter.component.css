@@ -1,0 +1,4 @@
+input[type=checkbox][disabled]{
+  background-color: #919090;
+  color: #919090;
+}

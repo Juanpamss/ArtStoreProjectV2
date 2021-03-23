@@ -38,7 +38,7 @@ export class artapiService {
 
     let encodedInput = encodeURI('"' + searchInput + '"')
 
-    return this.httpClient.get("https://api.artic.edu/api/v1/artworks/search?params=%7B%22limit%22%3A%20%2215%22%2C%22query%22%3A%20%7B%22terms%22%3A%20%7B%22classification_id%22%3A%5B%22TM-9%22%2C%22TM-13%22%2C%22TM-66%22%2C%22TM-2211%22%2C%22TM-80%22%2C%22TM-12%22%2C%22TM-39%22%5D%7D%7D%2C%22q%22%3A" + encodedInput + "%7D")
+    return this.httpClient.get("https://api.artic.edu/api/v1/artworks/search?params=%7B%22limit%22%3A%20%2215%22%2C%22query%22%3A%20%7B%22terms%22%3A%20%7B%22classification_id%22%3A%5B%22TM-9%22%2C%22TM-13%22%2C%22TM-66%22%2C%22TM-2211%22%2C%22TM-80%22%2C%22TM-12%22%2C%22TM-39%22%2C%22TM-212%22%5D%7D%7D%2C%22q%22%3A" + encodedInput + "%7D")
 
   }
 
@@ -52,6 +52,7 @@ export class artapiService {
     this.listArtPieces.splice(0, this.listArtPieces.length)
     this.emergingArtPieces.splice(0, this.listArtPieces.length)
     this.categoryListAvailable.splice(0, this.categoryListAvailable.length)
+    this.priceListAvailable.splice(0, this.priceListAvailable.length)
 
     for (let i = 0; i < searchResults.length; i++) {
       await this.getArtworkById(searchResults[i].api_link).then(

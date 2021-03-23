@@ -19,8 +19,6 @@ import * as data from './../../assets/category.json';
 })
 export class ProductsComponent implements OnInit {
 
-  categoryFilter: any = (data as any).default;
-
   categories = [];
 
   products: Product[] = [];
@@ -37,6 +35,8 @@ export class ProductsComponent implements OnInit {
 
   selectedClassification = [];
   selectedPrice = [];
+
+  totalCount = 0
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +55,7 @@ export class ProductsComponent implements OnInit {
     let subscriber = this._artapiService.getSearchResults(this.param1);
     subscriber.subscribe(
       data => {
+        this.totalCount = data['data'].length
         searchResults = data['data'].map(
           parseInfo => ({
             api_link: parseInfo.api_link,

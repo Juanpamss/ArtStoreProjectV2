@@ -1,7 +1,7 @@
 [
   {
     "name": "Classification",
-    "options": ["Oil on canvas", "Oil on board", "Oil on panel", "Sculpture", "Painting", "Engraving", "Watercolor"]
+    "options": ["Oil on canvas", "Oil on board", "Oil on panel", "Sculpture", "Painting", "Pen and ink drawings" ,"Engraving", "Watercolor"]
   },
   {
     "name": "Price",
