@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { artapiService } from '../services/artapi.service';
 import { Router } from '@angular/router';
 import { SearchResultsModel } from '../models/SearchResults.model';
@@ -12,9 +12,13 @@ import { LoginService } from '../login.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+
+  @Input() cartCount;
+  
   searchInput: string;
 
   searchResults: SearchResultsModel[];
+  itemCount: Number;
 
   constructor(
     private _artapiService: artapiService,

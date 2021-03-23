@@ -1,16 +1,24 @@
-<app-navbar></app-navbar>
+<app-navbar [cartCount]="cartCount"></app-navbar>
 <div class="container-fluid">
   <div class="row" style="margin-top: 90px">
-    <div class="col-md-3 cols">
+    <div  id="overlay" *ngIf="loading">
+      <div class="loader"></div>
+    </div>
+    <div class="col-md-3">
       <h4 style="margin-left: 40px; margin-bottom: 20px; font-weight: bold">Filter by</h4>
       <ng-container *ngFor="let f of categories; let i = index">
         <product-filter [category]="f"></product-filter>
         <hr style="margin-left: 10px; border-width: 1px">
       </ng-container>
     </div>
-    <div class="cols col-md-9 cols">
+    <div class="col-md-9">
       <div class="row">
-        <h4 style="margin-left: 10px; font-weight: bold">Results</h4>
+        <div *ngIf="param1 === ''; else elseBlockResults">
+          <h4 style="margin-left: 10px; font-weight: bold">Results</h4>
+        </div>
+        <ng-template #elseBlockResults>
+          <h4 style="margin-left: 10px; font-weight: bold">Results for: {{param1}}</h4>
+        </ng-template>
         <div *ngIf="artPiecesToDisplay.length === 0; else elseBlock">
           <div style="text-align: center; margin-top: 70px">
             <a class="fas fa-search fa-5x" style="color: black; text-decoration:none"></a>
@@ -20,10 +28,9 @@
         </div>
         <ng-template #elseBlock>
           <ng-container *ngFor="let p of artPiecesToDisplay; let i = index">
-            <div class="col">
-              <product-card [ArtPiece]="p"></product-card>
+            <div class="col-md-4">
+              <product-card [ArtPiece]="p" (cartCount)="reloadItemCount($event)"></product-card>
             </div>
-            <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
           </ng-container>
         </ng-template>
       </div>

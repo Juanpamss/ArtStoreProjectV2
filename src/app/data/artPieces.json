@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Der Kuss (The Kiss)",
+      "category": "Painting",
+      "image": "https://d32dm0rphc51dk.cloudfront.net/NOpIAwQa-3r51Cg9qXKbfA/medium.jpg",
+      "price": "400"
+    },
+    {
+      "id": "2",
+      "title": "The Third of May",
+      "category": "Painting",
+      "image": "https://d32dm0rphc51dk.cloudfront.net/m4X41Fun8gpDjn7Gat9cUg/medium.jpg",
+      "price": "1000"
+    },
+    {
+      "id": "3",
+      "title": "The Company of Frans Banning Cocq and Willem van Ruytenburch (The Night Watch)",
+      "category": "Painting",
+      "image": "https://d32dm0rphc51dk.cloudfront.net/IG8ZLvVmZgQiTn2zK0Bp8w/medium.jpg",
+      "price": "2300"
+    },
+    {
+      "id": "4",
+      "title": "Mona Lisa",
+      "category": "Painting",
+      "image": "https://d32dm0rphc51dk.cloudfront.net/5L1xjKC_und1uiKCpUPHhw/medium.jpg",
+      "price": "4000"
+    },
+    {
+      "id": "5",
+      "title": "Luncheon on the Grass (Le Déjeuner sur l'herbe)",
+      "category": "Painting",
+      "image": "https://d32dm0rphc51dk.cloudfront.net/zFA7cwdkWxbIrmuAAd21VA/medium.jpg",
+      "price": "1400"
+    }
+  ]
+}

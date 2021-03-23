@@ -91,22 +91,13 @@
             ></app-favourite>
           </ng-template>
         </li>
-        <li class="nav-item" style="margin-right: 10px">
-          <a
-            (click)="openCart(shoppingCartModal)"
-            class="fas fa-shopping-cart fa-lg"
-            style="color: grey; text-decoration: none"
-          >
-            <a
-              style="
-                font-family: sans-serif;
-                font-size: medium;
-                margin-left: 5px;
-                text-decoration: none;
-              "
-              >Cart</a
-            >
-          </a>
+        <li class="nav-item" style="margin-right: 10px; position: relative;">
+
+          <i (click)="openCart(shoppingCartModal)" class="fas fa-shopping-cart fa-lg" style="color: grey; text-decoration: none">
+            <span class='badge badge-warning' id='lblCartCount'> {{cartCount}} </span>
+            <a style="font-family: sans-serif;font-size: medium;margin-left: 5px;text-decoration: none;">Cart</a>
+          </i>
+
           <ng-template #shoppingCartModal let-modal class="shopping-cart">
             <app-cart (buttonClicked)="closeShoppingCart($event)"></app-cart>
           </ng-template>
