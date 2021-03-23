@@ -20,7 +20,7 @@ export class LandingPageComponent implements OnInit {
 
   activeArtPiece : ArtPiece;
 
-
+  dataInterval=true
   ngOnInit(){
     this._artapiService.getEmergingArt().subscribe(
       data => {
@@ -47,5 +47,9 @@ export class LandingPageComponent implements OnInit {
 
   redirectTo(){
     this.router.navigate(['/products'])
+  }
+
+  stopAutoscroll(){
+    this.dataInterval =false;
   }
 }
