@@ -6,6 +6,7 @@ export class ArtPiece {
   imgURL: string;
   style_title: string;
   price: number;
-  classification_title: string
+  classification_title: string;
+  toggle: boolean;
 
 }

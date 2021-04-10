@@ -68,7 +68,8 @@ export class artapiService {
                 imgURL: data['data'].image_id == null ? undefined : "https://www.artic.edu/iiif/2/" + data['data'].image_id + "/full/843,/0/default.jpg",
                 price: searchResults[i]._score * 10,
                 style_title: data['data'].style_title,
-                classification_title: data['data'].classification_title
+                classification_title: data['data'].classification_title,
+                toggle : false
               }
             )
           } else {
@@ -81,7 +82,9 @@ export class artapiService {
                 imgURL: data['data'].image_id == null ? undefined : "https://www.artic.edu/iiif/2/" + data['data'].image_id + "/full/843,/0/default.jpg",
                 price: searchResults[i]._score * 10,
                 style_title: data['data'].style_title,
-                classification_title: data['data'].classification_title
+                classification_title: data['data'].classification_title,
+                toggle : false
+
               }
             )
             this.categoryListAvailable.push(data['data'].classification_title)

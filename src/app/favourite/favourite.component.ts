@@ -1,5 +1,6 @@
 import { FavouriteService } from '../favourite.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ArtPiece } from '../models/artPiece.model';
 
 @Component({
   selector: 'app-favourite',
@@ -23,4 +24,11 @@ export class FavouriteComponent implements OnInit {
     this.favouriteService.clearFavourites();
     this.buttonClicked.emit(true);
   }
-}
+
+  removeFavourite(item){
+      this.favouriteService.removeFavourite(item);
+      (<ArtPiece>item).toggle =false;
+    
+    }
+  }
+
