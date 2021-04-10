@@ -25,7 +25,7 @@
       (click)="addToFavorites()"
       class="fas fa-heart fa-lg"
       style="text-decoration: none; margin-right: 10px; margin-left: 10px"
-      [style.color]="artPiece.toggle ? 'red' : 'grey'"
+      [style.color]="toggle ? 'red' : 'grey'"
     ></a>
     <a *ngIf="!inCart && showActions"
       (click)="addToCart(addedToCartModal)"

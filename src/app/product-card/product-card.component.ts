@@ -18,7 +18,7 @@ export class ProductCardComponent implements OnInit {
 
   inCart: boolean;
 
- 
+  toggle;
   itemCount: Number;
   constructor(
     private cartService: CartService,
@@ -34,8 +34,8 @@ export class ProductCardComponent implements OnInit {
   }
 
   addToFavorites() {
-    this.artPiece.toggle = !this.artPiece.toggle;
-    if (this.artPiece.toggle) {
+    this.toggle = !this.toggle;
+    if (this.toggle) {
       this.favouriteService.addToFavourite(this.artPiece);
     } else {
       this.favouriteService.removeFavourite(this.artPiece);
